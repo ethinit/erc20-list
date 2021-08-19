@@ -1,0 +1,16 @@
+{
+    "name": "erc20-list",
+    "version": "0.1.0",
+    "description": "List of ERC20 Tokens",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "author": "phpnikolov",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^3.7.5"
+    },
+    "dependencies": {
+        "erc20": "github:ethinit/erc20",
+        "web3": "^1.2.0"
+    }
+}
