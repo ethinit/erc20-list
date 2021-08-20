@@ -15,7 +15,6 @@ export interface iTokenList {
 }
 
 export class TokenList {
-    private static cache: { [key: string]: any } = {};
     constructor(protected web3: Web3, public tokenList: iTokenList = defaultList) {
 
     }

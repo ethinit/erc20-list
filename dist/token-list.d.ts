@@ -13,7 +13,6 @@ export interface iTokenList {
 export declare class TokenList {
     protected web3: Web3;
     tokenList: iTokenList;
-    private static cache;
     constructor(web3: Web3, tokenList?: iTokenList);
     private chainId;
     private getChainId;

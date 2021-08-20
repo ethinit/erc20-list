@@ -33,4 +33,3 @@ class TokenList {
     }
 }
 exports.TokenList = TokenList;
-TokenList.cache = {};
