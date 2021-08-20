@@ -18,5 +18,4 @@ export declare class TokenList {
     private chainId;
     private getChainId;
     getBySymbol(symbol: string): Promise<Token>;
-    getByAddress(address: string): Promise<Token>;
 }

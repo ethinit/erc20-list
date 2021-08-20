@@ -50,16 +50,6 @@ export class TokenList {
             throw `There are multiple tokens with symbol "${symbol}".`;
         }
 
-        return this.getByAddress(addresses[0])
-    }
-
-    async getByAddress(address: string): Promise<Token> {
-        let chainId = await this.getChainId();
-        let cacheKey = `${chainId}-erc20-${address.toLowerCase()}`;
-        if (!TokenList.cache[cacheKey]) {
-            TokenList.cache[cacheKey] = new Token(this.web3, address);
-        }
-
-        return TokenList.cache[cacheKey];
+        return Token.getInstance(this.web3, addresses[0]);
     }
 }

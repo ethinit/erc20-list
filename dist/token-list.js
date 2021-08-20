@@ -29,15 +29,7 @@ class TokenList {
         if (addresses.length > 1) {
             throw `There are multiple tokens with symbol "${symbol}".`;
         }
-        return this.getByAddress(addresses[0]);
-    }
-    async getByAddress(address) {
-        let chainId = await this.getChainId();
-        let cacheKey = `${chainId}-erc20-${address.toLowerCase()}`;
-        if (!TokenList.cache[cacheKey]) {
-            TokenList.cache[cacheKey] = new erc20_1.Token(this.web3, address);
-        }
-        return TokenList.cache[cacheKey];
+        return erc20_1.Token.getInstance(this.web3, addresses[0]);
     }
 }
 exports.TokenList = TokenList;
