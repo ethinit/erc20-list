@@ -333,6 +333,13 @@
             "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
             "decimals": 18,
             "chainId": 56
+        },
+        {
+            "name": "USD Coin",
+            "symbol": "USDC",
+            "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+            "decimals": 6,
+            "chainId": 250
         }
     ]
 }
