@@ -1,6 +1,8 @@
 import Web3 from "web3";
 import { Token } from "erc20";
+import { AbiItem } from 'web3-utils';
 const defaultList = require('../lists/ethinit.json')
+const defaultAbis = require('../abis.json')
 
 export interface iToken {
     chainId: number,
@@ -15,7 +17,7 @@ export interface iTokenList {
 }
 
 export class TokenList {
-    constructor(protected web3: Web3, public tokenList: iTokenList = defaultList) {
+    constructor(protected web3: Web3, public tokenList: iTokenList = defaultList, public abis: {[address: string]: AbiItem[]} = defaultAbis) {
 
     }
 
@@ -49,6 +51,6 @@ export class TokenList {
             throw `There are multiple tokens with symbol "${symbol}".`;
         }
 
-        return Token.getInstance(this.web3, addresses[0]);
+        return Token.getInstance(this.web3, addresses[0], this.abis[addresses[0]]);
     }
 }
