@@ -3,10 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TokenList = void 0;
 const erc20_1 = require("erc20");
 const defaultList = require('../lists/ethinit.json');
+const defaultAbis = require('../abis.json');
 class TokenList {
-    constructor(web3, tokenList = defaultList) {
+    constructor(web3, tokenList = defaultList, abis = defaultAbis) {
         this.web3 = web3;
         this.tokenList = tokenList;
+        this.abis = abis;
     }
     getChainId() {
         if (!this.chainId) {
@@ -29,7 +31,7 @@ class TokenList {
         if (addresses.length > 1) {
             throw `There are multiple tokens with symbol "${symbol}".`;
         }
-        return erc20_1.Token.getInstance(this.web3, addresses[0]);
+        return erc20_1.Token.getInstance(this.web3, addresses[0], this.abis[addresses[0]]);
     }
 }
 exports.TokenList = TokenList;
